@@ -1,0 +1,19 @@
+{
+	"files": {
+		"Readme.md": "3e3f3733d13b91313c324a0535fba55147ce6bd4b573967425ef9e70ff05f9de",
+		"index.js": "ab1a960c1cdb18ce019df93c4b7ec73471850b4dafa9cf1002cd3018b45876b1",
+		"module.json": "0a32a4f7cd1b0aef3ca5a53a4c40c47456f5b556034e52a6dd4704b37e3bc9e0"
+	},
+	"defs": {
+		"C_CANCEL_RETURN_TO_LOBBY": "raw",
+		"C_LOAD_TOPO_FIN": "raw",
+		"C_RETURN_TO_LOBBY": 1,
+		"C_SELECT_USER": ["raw",1],
+		"C_USE_ITEM": 3,
+		"S_GET_USER_LIST": 15,
+		"S_INVEN": 16,
+		"S_LOGIN": 10,
+		"S_RETURN_TO_LOBBY": "raw",
+		"S_START_COOLTIME_ITEM": 1
+	}
+}
