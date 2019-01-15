@@ -1,0 +1,16 @@
+{
+    "disableAutoUpdate": false,
+    "name": "Autovials",
+    "author": "Shalltearz",
+    "description": "Tera proxy module which uses vial of elinu's tears on every character.",
+    "version": "1.0",
+    "options": {
+        "niceName": "Autovials",
+        "guiName": "Autovials",
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js"
+    },
+    "servers": ["https://raw.githubusercontent.com/Tera-Shiraneko/auto-vials/master/"],
+    "supportUrl": "https://github.com/Tera-Shiraneko/auto-vials/issues"
+}
