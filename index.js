@@ -14,7 +14,7 @@ module.exports = function Autovials(mod) {
         cooldowntimer = null,
         charselecttimer = null;
 
-    mod.hook('S_INVEN', 16, (event) => {
+    mod.hook('S_INVEN', 17, (event) => {
         let invenlist = event.items;
 
         for (let i = 0; i < invenlist.length; i++) {
