@@ -35,25 +35,28 @@ module.exports = function Autovials(mod) {
 
     mod.command.add('autovialsactiondelay', (id) => {
         mod.settings.actiondelay = Number.parseInt((id.replace(/\D+/g, '')), 10);
-            mod.command.message('Delay between actions set to ' + mod.settings.actiondelay + '.');
-        if (isNaN(mod.settings.actiondelay)) {
-            mod.command.message('Please enter an valid delay number.');
+        mod.command.message('Delay between actions set to ' + mod.settings.actiondelay + '.');
+        if (Number.isNaN(mod.settings.actiondelay) || mod.settings.actiondelay < 1000) {
+            mod.settings.actiondelay = 1000;
+            mod.command.message('Default settings applied please enter an valid delay number.');
         }
-    });	
+    });
 
     mod.command.add('autovialschardelay', (id) => {
         mod.settings.charselectdelay = Number.parseInt((id.replace(/\D+/g, '')), 10);
-            mod.command.message('Delay between switching characters set to ' + mod.settings.charselectdelay + '.');
-        if (isNaN(mod.settings.charselectdelay)) {
-            mod.command.message('Please enter an valid delay number.');
+        mod.command.message('Delay between switching characters set to ' + mod.settings.charselectdelay + '.');
+        if (Number.isNaN(mod.settings.charselectdelay) || mod.settings.charselectdelay < 15000) {
+            mod.settings.charselectdelay = 15000;
+            mod.command.message('Default settings applied please enter an valid delay number.');
         }
-    });	
+    });
 
     mod.command.add('autovialsid', (id) => {
         mod.settings.elinuid = Number.parseInt((id.replace(/\D+/g, '')), 10);
-            mod.command.message('Vial of elinus tears id set to ' + mod.settings.elinuid + '.');
-        if (isNaN(mod.settings.elinuid)) {
-            mod.command.message('Please enter an valid item id.');
+        mod.command.message('Vial of elinus tears id set to ' + mod.settings.elinuid + '.');
+        if (Number.isNaN(mod.settings.elinuid) || mod.settings.elinuid === 0) {
+            mod.settings.elinuid = 182433;
+            mod.command.message('Default settings applied please enter an valid item id.');
         }
     });
 
@@ -140,7 +143,7 @@ module.exports = function Autovials(mod) {
     });
 
     function vialusage() {
-        if (!cooldown && itemamount > 0) {
+        if (!cooldown && itemamount > 0 && mod.settings.elinuid != 0) {
             mod.send('C_USE_ITEM', 3, {
                 gameId: mod.game.me.gameId,
                 id: mod.settings.elinuid,
