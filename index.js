@@ -1,3 +1,4 @@
+
 const SettingsUI = require('tera-mod-ui').Settings;
 
 module.exports = function Autovials(mod) {
@@ -39,8 +40,8 @@ module.exports = function Autovials(mod) {
     mod.command.add('autovialsid', (id) => {
         mod.settings.elinuid = Number.parseInt((id.replace(/\D+/g, '')), 10);
         if (mod.settings.elinuid === 0) {
-            mod.settings.elinuid = 182433;
-            mod.command.message('Default settings applied please enter an valid item id.');
+            mod.command.message('Please enter an valid item id.');
+            return;
         }
         mod.command.message(`Vial of elinus tears id set to ${mod.settings.elinuid}.`);
     });
@@ -146,7 +147,11 @@ module.exports = function Autovials(mod) {
     });
 
     function vialusage() {
-        if (!cooldown && itemamount > 0 && mod.settings.elinuid != 0) {
+        if (mod.settings.elinuid === 0) {
+            mod.settings.elinuid = 182433;
+            mod.command.message('Default item id applied please enter an valid item id next time.');
+        }
+        if (!cooldown && itemamount > 0) {
             mod.send('C_USE_ITEM', 3, {
                 gameId: mod.game.me.gameId,
                 id: mod.settings.elinuid,
