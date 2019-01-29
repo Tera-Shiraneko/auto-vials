@@ -1,4 +1,3 @@
-
 const SettingsUI = require('tera-mod-ui').Settings;
 
 module.exports = function Autovials(mod) {
