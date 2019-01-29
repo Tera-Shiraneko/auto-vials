@@ -38,7 +38,7 @@ module.exports = function Autovials(mod) {
 
     mod.command.add('autovialsactiondelay', (id) => {
         mod.settings.actiondelay = Number.parseInt((id.replace(/\D+/g, '')), 10);
-        mod.command.message('Delay between actions set to ' + mod.settings.actiondelay + '.');
+        mod.command.message(`Delay between actions set to ${mod.settings.actiondelay/1000}s.`);
         if (Number.isNaN(mod.settings.actiondelay) || mod.settings.actiondelay < 1000) {
             mod.settings.actiondelay = 1000;
             mod.command.message('Default settings applied please enter an valid delay number.');
@@ -47,7 +47,7 @@ module.exports = function Autovials(mod) {
 
     mod.command.add('autovialschardelay', (id) => {
         mod.settings.charselectdelay = Number.parseInt((id.replace(/\D+/g, '')), 10);
-        mod.command.message('Delay between switching characters set to ' + mod.settings.charselectdelay + '.');
+        mod.command.message(`Delay between switching characters set to ${mod.settings.charselectdelay/1000}s.`);
         if (Number.isNaN(mod.settings.charselectdelay) || mod.settings.charselectdelay < 15000) {
             mod.settings.charselectdelay = 15000;
             mod.command.message('Default settings applied please enter an valid delay number.');
@@ -56,7 +56,7 @@ module.exports = function Autovials(mod) {
 
     mod.command.add('autovialsid', (id) => {
         mod.settings.elinuid = Number.parseInt((id.replace(/\D+/g, '')), 10);
-        mod.command.message('Vial of elinus tears id set to ' + mod.settings.elinuid + '.');
+        mod.command.message(`Vial of elinus tears id set to ${mod.settings.elinuid}.`);
         if (Number.isNaN(mod.settings.elinuid) || mod.settings.elinuid === 0) {
             mod.settings.elinuid = 182433;
             mod.command.message('Default settings applied please enter an valid item id.');
