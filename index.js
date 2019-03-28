@@ -63,7 +63,7 @@ module.exports = function Autovials(mod) {
         mod.command.message(`Delay between switching characters set to ${mod.settings.charselectdelay/1000}s.`);
     });
 
-    mod.hook('S_INVEN', 17, (event) => {
+    mod.hook('S_INVEN', mod.majorPatchVersion < 80 ? 17 : 18, {order: -1000, filter: {fake: null}}, (event) => {
         let invenlist = event.items;
 
         for (let i = 0; i < invenlist.length; i++) {
